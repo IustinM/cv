@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.style{
+  font-family: 'Exo 2', sans-serif;
+//   background: linear-gradient(285deg, rgba(2,0,36,1) 0%, rgba(0,0,147,1) 0%, rgba(3,3,99,1) 0%, rgba(0,0,0,1) 100%);
+  overflow: hidden;
+}
+$blue: #03061A;
+$panko: #EDCDA3;
+$white: #FFFFFF;
+
+.space-gradient1 {
+	background-repeat: no-repeat !important;
+	background-attachment: fixed !important;
+  }
+// .space-gradient2 {
+// 	background: radial-gradient(circle at bottom, rgb(0, 128, 34) 0, black 100%);
+// 	background-repeat: no-repeat;
+// 	background-attachment: fixed;
+//   }
+@function generate-random-stars ($screen-width, $color, $density){
+  
+  $h-shadow: random($screen-width);
+  $v-shadow: random($screen-width);
+  
+  $stars: '#{$h-shadow}px #{$v-shadow}px #{$color}';
+	@for $i from 2 through $density {
+      $h-shadow: random($screen-width);
+      $v-shadow: random($screen-width);
+    
+    $stars: '#{$stars}, #{$h-shadow}px #{$v-shadow}px #{$color}';
+	}
+	@return unquote($stars);
+}
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+  }
+.space {
+background: rgba(128, 0, 128, 0.1) center / 200px 200px round;
+
+}
+
+@mixin stars-content($screen-width, $color, $density, $speed, $delay) {
+  width: 2px;
+  height: 2px;
+	border-radius: 50%;
+	opacity: 0;
+	box-shadow: generate-random-stars($screen-width, $color, $density);
+	animation-name: glowing-stars;
+  animation-duration: $speed+s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+	animation-delay: $delay+s;
+}
+
+
+
+
+#stars-group-1{
+	@include stars-content(1800, #fff, 200, 3, 0);
+}
+
+#stars-group-2{
+	@include stars-content(1800, #fff, 200, 3, 0.5);
+}
+
+#stars-group-3{
+	@include stars-content(1800, #fff, 200, 3, 1);
+}
+
+#stars-group-4{
+	@include stars-content(1800, #fff, 200, 3, 1.5);
+}
+
+#stars-group-5{
+	@include stars-content(1800, #fff, 200, 3, 2);
+}
+
+#stars-group-6{
+	@include stars-content(1800, #fff, 200, 3, 2.5);
+}
+#comet {
+	@include size(6px);
+	background-color: rgba($white, .6);
+	box-shadow: 0 0 40px 0 $panko, 0 0 20px 0 $white, inset 0 0 8px rgba($white,.6);
+	top: 0;
+	left: 80%;
+	opacity: 0.3;
+	transform: rotate(-45deg) translate(0,-50px);
+	animation: comet 6s infinite;
+	&:after {
+	  content: '';
+	  @include size(20vw,6px);
+	  border-radius: 50%;
+	  background-color: rgba($white, .1);
+	  box-shadow: 0 0 20px rgba($panko, .4);
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	}
+  }
+  @keyframes comet {
+	0% {
+	  transform: rotate(-45deg) translateX(0);
+	  opacity: 0.3;
+	}
+	10% {
+	  opacity: 1;
+	}
+	20% {
+	  transform: rotate(-45deg) translateX(-100vw);
+	  opacity: 0;
+	}
+	100% {
+	  transform: rotate(-45deg) translateX(-100vw);
+	  opacity: 0;
+	}
+  }
+
+@keyframes glowing-stars {
+    0%   {opacity: 0;}
+    50%  {opacity: 1;}
+    100% {opacity: 0;}
+}

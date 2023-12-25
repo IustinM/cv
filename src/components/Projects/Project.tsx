@@ -1,4 +1,4 @@
-import {  faBrain, faCode, faCompass, faGear, faPalette, faVideo } from '@fortawesome/free-solid-svg-icons';
+import {  faBrain, faCode, faCompass, faGear, faPalette, faServer, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import neptun from '../../images/neptun.png';
 import Tehnology from './utils/Tehnology';
@@ -18,7 +18,7 @@ interface Props{
   progress?:boolean
 }
 
-const Project:React.FC<any> =  React.forwardRef(({index,title,tehnologies,description,type,progress}) => {
+const Project:React.FC<any> =  React.forwardRef(({index,project}) => {
 
 
   const { ref : inViewRef, inView, entry } = useInView({
@@ -27,7 +27,7 @@ const Project:React.FC<any> =  React.forwardRef(({index,title,tehnologies,descri
   const {setBackgroundIndex} = useContext(GeneralContext);
     
   const returnIcon = () =>{
-    switch(type){
+    switch(project.ype){
       case 'movies':
         return <FontAwesomeIcon icon={faVideo}/>
     
@@ -53,11 +53,10 @@ const Project:React.FC<any> =  React.forwardRef(({index,title,tehnologies,descri
         return   <img  src={neptun} alt={'neptun img'} className='bottom-[10%] w-[650px] h-[650px]   absolute xl:w-[500px]  xl:h-[500px]  lg:h-[370px] lg:w-[370px] md:w-[240px] md:h-[240px]' />
       }
       case 2:{
-          return <img  src={projectplanet1} alt={'projectplanet1 img'} className='top-[5%] left-[60%] w-[450px] h-[450px]   absolute xl:w-[300px]  xl:h-[300px]  lg:h-[250px] lg:w-[250px] md:w-[140px] md:h-[140px]' />
-          
-        }
-        case 3:{
-          return <img  src={projectplanet2} alt={'projectplanet2 img'} className='top-[15%] left-[2%] w-[550px] h-[550px]   absolute xl:w-[400px]  xl:h-[400px]  lg:h-[320px] lg:w-[320px] md:w-[180px] md:h-[180px]' />
+        return <img  src={projectplanet1} alt={'projectplanet1 img'} className='top-[5%] left-[60%] w-[450px] h-[450px]   absolute xl:w-[300px]  xl:h-[300px]  lg:h-[250px] lg:w-[250px] md:w-[140px] md:h-[140px]' />
+      }
+      case 3:{
+        return <img  src={projectplanet2} alt={'projectplanet2 img'} className='top-[15%] left-[2%] w-[550px] h-[550px]   absolute xl:w-[400px]  xl:h-[400px]  lg:h-[320px] lg:w-[320px] md:w-[180px] md:h-[180px]' />
       }
       default: return;
     }
@@ -65,24 +64,24 @@ const Project:React.FC<any> =  React.forwardRef(({index,title,tehnologies,descri
 
   return (
     <div ref={inViewRef}  id='projects' className='w-full min-h-[100vh]  md:min-h-[800px]'>
-    <div className="w-[80%] lg:w-[90%] md:min-h-[800px] relative rounded-[0.5rem] p-[2rem] md:w-full md:border-0 md:min-h-[100vh] md:rounded-none md:bg-mobileShadowBg bg-shadowBg border-[1px] border-white min-h-[80vh] z-[170]  mx-auto ">
+    <div className="w-[80%] lg:w-[90%] md:min-h-[800px] relative rounded-[0.5rem] p-[2rem] md:w-full md:border-0  md:rounded-none md:bg-mobileShadowBg bg-shadowBg  min-h-[80vh] z-[170]  mx-auto ">
         <div className="flex items-center text-[2.5rem] md:text-[1.6rem]">
-          <h2 className=''>{index}. {title}</h2>
+          <h2 className=''>{project.title}</h2>
           <div className="mx-2"></div>
           {returnIcon()}
         </div>
         
         <div className={`${index-1 === 0 ? 'pb-[5rem]' : ''}`}>
           <div className="font-bold text-[1.4rem] mt-[1.5rem] mxl:text-[1.3rem]">Description:</div>
-          <div className={`${index -1  === 0 ? 'text-[1.4rem] ' : 'text-[1.2rem]'} mxl:text-[1rem]2 mt-[0.5rem]`}>{description}</div>
+          <div className={`${index -1  === 0 ? 'text-[1.4rem] ' : 'text-[1.2rem]'} mxl:text-[1rem] mt-[0.5rem]`}>{project.description}</div>
         </div>
         <div className="my-[2rem]">
           <div className="font-bold text-[1.4rem] ">Tehnologies:</div>
-          <div className="flex flex-wrap mt-[0.5rem]">{tehnologies.map((tehnology:string) => <Tehnology text={tehnology} />)}</div>
+          <div className="flex flex-wrap mt-[0.5rem]">{project.tehnologies.map((tehnology:string) => <Tehnology text={tehnology} />)}</div>
         </div>
         <div className="flex flex-wrap">
-          {!progress ?
-          <a href='/' className='bg-white px-[1rem] my-[1rem] py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] border-white hover:bg-transparent hover:text-white transition-all text-black flex items-center rounded-[0.2rem] cursor-pointer hover:bg'>
+          {!project.progress ?
+          <a href={project.website_link} target="_blank" className='bg-white px-[1rem] my-[1rem] py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] border-white hover:bg-transparent hover:text-white transition-all text-black flex items-center rounded-[0.2rem] cursor-pointer hover:bg'>
             Discover website
             <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={faCompass}/>
           </a>
@@ -94,11 +93,24 @@ const Project:React.FC<any> =  React.forwardRef(({index,title,tehnologies,descri
           }
           
           <div className="mx-[1rem]"></div>
-          <a href='/' className='hover:bg-white px-[1rem] my-[1rem]  py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] text-white border-white hover:bg-transparent  transition-all  hover:text-black flex items-center rounded-[0.2rem] cursor-pointer hover:bg'>
+          {index - 1 === 0 ? 
+          <a href={project.source_code} target="_blank" className='hover:bg-white px-[1rem] my-[1rem]  py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] text-white border-white hover:bg-transparent  transition-all  hover:text-black flex items-center rounded-[0.2rem] cursor-pointer hover:bg'>
             View code
             <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={faCode}/>
           </a>
-          
+          : 
+        <div className="flex">
+        <a href={project.source_code.frontend} target="_blank" className='hover:bg-white px-[1rem] my-[1rem]  py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] text-white border-white hover:bg-transparent  transition-all  hover:text-black flex items-center rounded-[0.2rem] cursor-pointer '>
+          View frontend
+          <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={faCode}/>
+        </a>
+        <div className="mx-[1rem]"></div>
+        <a href={project.source_code.backend} target="_blank" className='hover:bg-white px-[1rem] my-[1rem]  py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] text-white border-white hover:bg-transparent  transition-all  hover:text-black flex items-center rounded-[0.2rem] cursor-pointer'>
+          View backend
+          <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={faServer}/>
+        </a>
+        </div>
+          }
         </div>
     </div>
         {returnPlanet()}

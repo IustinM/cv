@@ -1,4 +1,4 @@
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faCode } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback, useContext, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer';
@@ -34,7 +34,10 @@ const ProjectsHeader:React.FC<any> =  React.forwardRef(({},ref:any) => {
                 <h2 className="text-[3rem] md:text-[1.5rem] ">Projects</h2>
                 <p className='text-[1.2rem] md:text-[1rem] mt-[1rem]'>KeepInMind and AppriseMe are two projects that I created for my own use and that I am still working on, if you think it will help you feel free to use them for your own purpose.</p>
                 <div className="flex flex-wrap">
-                    <button className="w-[200px] border-[3px]  p-2 cursor-pointer flex justify-center items-center my-[3rem] text-[1.2rem] md:text-[1rem] md:w-[180px] md:my-[2rem]">CV page source code</button>
+                    <a href='https://github.com/IustinM/cv' target="_blank" className="w-[200px] border-[3px]  p-2 cursor-pointer flex justify-center items-center hover:bg-white hover:text-black transition-all rounded-[0.3rem] hover:border-white my-[3rem] text-[1.2rem] md:text-[1rem] md:w-[180px] md:my-[2rem]">
+                        <span>CV source code</span>
+                        <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={faCode}/>
+                    </a>
                         <div className="mx-[1.5rem]"></div>
                     {/* <div className="flex items-center text-[1.4rem] md:text-[1.1rem] cursor-pointer">
                         <h2 className="mr-2">

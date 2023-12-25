@@ -103,7 +103,7 @@ const MainComponent = () => {
         <ComponentLayout><Journey/></ComponentLayout>
         <ComponentLayout><JourneyLine/></ComponentLayout>
         <ComponentLayout><ProjectsHeader ref={projectsRef}/></ComponentLayout>
-        {projects.map((project,index) =><ComponentLayout><Project  index={index+1} title={project.title} tehnologies={project.tehnologies} description={project.description} type={project.type} progress={project.progress}/></ComponentLayout>)}
+        {projects.map((project,index) =><ComponentLayout><Project  index={index+1} project={project}/></ComponentLayout>)}
         <ComponentLayout><Form ref={contactsRef}/> </ComponentLayout>
         <Footer/>
     </div>

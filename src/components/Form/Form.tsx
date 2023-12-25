@@ -32,15 +32,25 @@ const Form:React.FC<any> = React.forwardRef(({},myRef:any) => {
   );
 
   const onSubmitHandler = (e:any) =>{
+   
     e.preventDefault();
-    if(email.length> 0 && name.length> 0&&message.length >0){
-        emailjs.sendForm(process.env.REACT_APP_API_EMAIL_SERVICE_ID!,process.env.REACT_APP_API_EMAIL_TEMPLATE_ID!,form.current!,process.env.REACT_APP_API_EMAIL_PUBLIC_KEY)
+    if( name.length< 2 && email.length> 0  &&message.length >10){
+      setErrorMessage('Name should be at least 2 characters long');
+      return;
+    } else if( message.length< 10 &&name.length> 2 && email.length> 0){
+      setErrorMessage('Message should be at least 10 characters long');
+      return;
+    }
+    if(email.length> 0 && name.length> 0 &&message.length >0){
+        emailjs.sendForm(process.env.REACT_APP_API_EMAIL_SERVICE_ID!,process.env.REACT_APP_API_EMAIL_TEMPLATE_ID!,e.target,process.env.REACT_APP_API_EMAIL_PUBLIC_KEY)
         .then(result => 
           setSubmitted(true))
         .catch(error => setErrorMessage('Something went wrong'))
     }else{
       setErrorMessage('Please complete all fields')
     }
+    
+  
   }
     
   useEffect(() =>{
@@ -55,13 +65,16 @@ const Form:React.FC<any> = React.forwardRef(({},myRef:any) => {
   useEffect(()=>{
     if(submitted){
       setTimeout(() => {
+        setName('');
+        setMessage('');
+        setErrorMessage('');
         setSubmitted(false)
       },2000)
     }
     },[submitted])
   
   return (
-    <div ref={setRefs} id='contact' className='flex min-h-[100vh]  pb-[1rem] relative z-[202] justify-center md:bg-mobileShadowBg items-center'>
+    <div ref={setRefs} id='contact' className='flex min-h-[100vh]  pb-[1rem] relative z-[201] justify-center md:bg-mobileShadowBg items-center'>
        
             <form ref={form} onSubmit={onSubmitHandler} className='flex bg-shadowBg flex-col min-h-[550px] sm:border-0 sm:bg-transparent p-[1rem] border-[1px] rounded-[0.5rem] border-white w-[350px] px-[1.5rem]  justify-center h-[300px] text-black'>
               <div className="w-[85%] mx-auto flex flex-col">
@@ -71,10 +84,10 @@ const Form:React.FC<any> = React.forwardRef(({},myRef:any) => {
                   {errorMessage}
                 </div>
                 
-                <label className='mb-[0.5rem] text-white' htmlFor="name">Name:</label>
-                <input type="text" name="user_name" id='name' onChange={(e:any) => setName(e.target.value)} placeholder='Name' className=' p-[0.5rem] rounded-[0.2rem]'/>
+                <label className='mb-[0.5rem] text-white' htmlFor="user_name">Name:</label>
+                <input type="text" name="name" id='name'  onChange={(e:any) => setName(e.target.value)} placeholder='Name' className=' p-[0.5rem] rounded-[0.2rem]'/>
                 <label className='mb-[0.5rem] mt-[1rem] text-white' htmlFor="email">Email:</label>
-                <input type='email' id='email' placeholder='Email' onChange={(e:any)=>setEmail(e.target.value)} name="user_email" className='p-[0.5rem] rounded-[0.2rem]'/>
+                <input type='email'  id='email' placeholder='Email' onChange={(e:any)=>setEmail(e.target.value)} name="email" className='p-[0.5rem] rounded-[0.2rem]'/>
                 <label className='mb-[0.5rem] mt-[1rem] text-white' htmlFor="message">Message:</label>
                 <textarea  name='message' onChange={(e:any) =>setMessage(e.target.value)}  id='message' placeholder='Message' className='resize-none  rounded-[0.2rem] h-[100px] p-[0.5rem]'/>
                 <button type='submit'  className={` ${submitted ? 'bg-[#1fa32a] text-white' : 'hover:bg-white text-white border-white hover:bg-transparent   hover:text-black'} px-[1rem] mt-[1rem] p-[0.5rem] border-[2px] text-[1.1rem] transition-all  flex items-center justify-center rounded-[0.2rem] cursor-pointer`}>

@@ -33,8 +33,8 @@ const JourneyLine = () => {
                   <Text x={-50} y={15} text="Finished Highschool" year={'2021'}/>
                   <Text x={-50} y={30} text="First FrontEnd Developer Job" year={'2022'}/>
                   <Text x={-50} y={45} text="Moved To UK" year={'2023'}/>
-                  <PingText x={-50} y={60} text="Next destination?" year={'2024'} currentDestination/>
-                  <Text x={-50} y={95} text="No limit" year={'∞'} infinite/>
+                  <PingText x={-55} y={60} text="Next destination?" year={'2024'} currentDestination/>
+                  <Text x={-50} y={97} text="No limit" year={'∞'} infinite/>
                 </div>
             </div>
         </div>

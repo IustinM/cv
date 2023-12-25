@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/IustinM/cv/static/css/main.6c443b8b.css",
-    "main.js": "/IustinM/cv/static/js/main.6dfd361c.js",
-    "static/media/earth.png": "/IustinM/cv/static/media/earth.7e5844089dbcdaf6b68d.png",
-    "static/media/satellite.png": "/IustinM/cv/static/media/satellite.f9836551dcd2212f1cbd.png",
-    "static/media/jupiter.png": "/IustinM/cv/static/media/jupiter.aa323f698284499725fa.png",
-    "static/media/projectplanet1.png": "/IustinM/cv/static/media/projectplanet1.69419e35a4d7b93ef809.png",
-    "static/media/moon.png": "/IustinM/cv/static/media/moon.3de997026fccfb41779e.png",
-    "static/media/satellite2.png": "/IustinM/cv/static/media/satellite2.e6f67bfd9f082bad2484.png",
-    "static/media/deimos.png": "/IustinM/cv/static/media/deimos.46b8ea1a9e3dc199cdac.png",
-    "static/media/projectplanet2.png": "/IustinM/cv/static/media/projectplanet2.a65fb5ce04beeb94a2e0.png",
-    "static/media/phobos.png": "/IustinM/cv/static/media/phobos.ab37844d0a9bc8c4f107.png",
-    "static/media/sonda.png": "/IustinM/cv/static/media/sonda.a357b24cfe5c9af326fa.png",
-    "static/media/uranus.png": "/IustinM/cv/static/media/uranus.236dab23a4602b3f898d.png",
-    "static/media/mars.png": "/IustinM/cv/static/media/mars.8970c46d2d83aeee8c5a.png",
-    "static/media/neptun.png": "/IustinM/cv/static/media/neptun.adfb90377f8fb64394fd.png",
-    "static/media/saturn.png": "/IustinM/cv/static/media/saturn.57a06e7e3664b00da731.png",
-    "static/media/icon.png": "/IustinM/cv/static/media/icon.964321cad8b268005c46.png",
-    "index.html": "/IustinM/cv/index.html",
-    "main.6c443b8b.css.map": "/IustinM/cv/static/css/main.6c443b8b.css.map",
-    "main.6dfd361c.js.map": "/IustinM/cv/static/js/main.6dfd361c.js.map"
+    "main.css": "/cv/static/css/main.a5c59d30.css",
+    "main.js": "/cv/static/js/main.ddb4a622.js",
+    "static/media/earth.png": "/cv/static/media/earth.7e5844089dbcdaf6b68d.png",
+    "static/media/satellite.png": "/cv/static/media/satellite.f9836551dcd2212f1cbd.png",
+    "static/media/jupiter.png": "/cv/static/media/jupiter.aa323f698284499725fa.png",
+    "static/media/projectplanet1.png": "/cv/static/media/projectplanet1.69419e35a4d7b93ef809.png",
+    "static/media/moon.png": "/cv/static/media/moon.3de997026fccfb41779e.png",
+    "static/media/satellite2.png": "/cv/static/media/satellite2.e6f67bfd9f082bad2484.png",
+    "static/media/deimos.png": "/cv/static/media/deimos.46b8ea1a9e3dc199cdac.png",
+    "static/media/projectplanet2.png": "/cv/static/media/projectplanet2.a65fb5ce04beeb94a2e0.png",
+    "static/media/phobos.png": "/cv/static/media/phobos.ab37844d0a9bc8c4f107.png",
+    "static/media/sonda.png": "/cv/static/media/sonda.a357b24cfe5c9af326fa.png",
+    "static/media/uranus.png": "/cv/static/media/uranus.236dab23a4602b3f898d.png",
+    "static/media/mars.png": "/cv/static/media/mars.8970c46d2d83aeee8c5a.png",
+    "static/media/neptun.png": "/cv/static/media/neptun.adfb90377f8fb64394fd.png",
+    "static/media/saturn.png": "/cv/static/media/saturn.57a06e7e3664b00da731.png",
+    "static/media/icon.png": "/cv/static/media/icon.964321cad8b268005c46.png",
+    "index.html": "/cv/index.html",
+    "main.a5c59d30.css.map": "/cv/static/css/main.a5c59d30.css.map",
+    "main.ddb4a622.js.map": "/cv/static/js/main.ddb4a622.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c443b8b.css",
-    "static/js/main.6dfd361c.js"
+    "static/css/main.a5c59d30.css",
+    "static/js/main.ddb4a622.js"
   ]
 }

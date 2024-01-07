@@ -22,7 +22,7 @@ export const  projects = [
         description:"AppriseMe is a project based on the Atomic Habbits book. The project aims to correct negative habits and create positive habits or develop current ones. The project contains an algorithm developed by me, which, following some data received from the user, will calculate the stage in which the habit is, either negative or positive, the time required to eliminate the negative habit, or the development of the positive one, as well as a graph of all habbits. The frontend of the project is also made in React.js and TypeScript, and the backend is made in Express.js.",
         tehnologies:["React","Tailwind","JWT","Framer Motion","Express.js","MySql","TypeScript"],
         website_link:'',
-        source_code:{frontend:'https://github.com/IustinM/appriseme-client',backend:'https://github.com/IustinM/keepinmind-server'},
+        source_code:'https://github.com/IustinM/appriseme-client',
         type:'habbit',
         progress:true
     }

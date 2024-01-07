@@ -93,23 +93,24 @@ const Project:React.FC<any> =  React.forwardRef(({index,project}) => {
           }
           
           <div className="mx-[1rem]"></div>
-          {index - 1 === 0 ? 
+          {index - 1 === 1 ? 
+            <div className="flex">
+            <a href={project.source_code.frontend} target="_blank" className='hover:bg-white px-[1rem] my-[1rem]  py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] text-white border-white hover:bg-transparent  transition-all  hover:text-black flex items-center rounded-[0.2rem] cursor-pointer '>
+              View frontend
+              <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={faCode}/>
+            </a>
+            <div className="mx-[1rem]"></div>
+            <a href={project.source_code.backend} target="_blank" className='hover:bg-white px-[1rem] my-[1rem]  py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] text-white border-white hover:bg-transparent  transition-all  hover:text-black flex items-center rounded-[0.2rem] cursor-pointer'>
+              View backend
+              <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={faServer}/>
+            </a>
+            </div>
+          : 
           <a href={project.source_code} target="_blank" className='hover:bg-white px-[1rem] my-[1rem]  py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] text-white border-white hover:bg-transparent  transition-all  hover:text-black flex items-center rounded-[0.2rem] cursor-pointer hover:bg'>
             View code
             <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={faCode}/>
           </a>
-          : 
-        <div className="flex">
-        <a href={project.source_code.frontend} target="_blank" className='hover:bg-white px-[1rem] my-[1rem]  py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] text-white border-white hover:bg-transparent  transition-all  hover:text-black flex items-center rounded-[0.2rem] cursor-pointer '>
-          View frontend
-          <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={faCode}/>
-        </a>
-        <div className="mx-[1rem]"></div>
-        <a href={project.source_code.backend} target="_blank" className='hover:bg-white px-[1rem] my-[1rem]  py-[0.5rem] border-[2px] text-[1.1rem] md:text-[0.9rem] text-white border-white hover:bg-transparent  transition-all  hover:text-black flex items-center rounded-[0.2rem] cursor-pointer'>
-          View backend
-          <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={faServer}/>
-        </a>
-        </div>
+      
           }
         </div>
     </div>

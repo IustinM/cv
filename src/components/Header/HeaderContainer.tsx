@@ -8,15 +8,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GeneralContext } from '../../context/generalContext';
 import { useInView } from 'react-intersection-observer';
 import ImageComponent from '../utils/ImageComponent';
+// import pdf from '../../../public/morosanu_iustin_cv.pdf'
 const HeaderContainer = () => {
 
     const {setBackgroundIndex} = useContext(GeneralContext);
 
-    const fileUrl = '../../../public/downloads/morosanu_iustin_cv.docx';
-    const downloadHandler = () =>{
-
-    }
-
+    const downloadFile = () => {
+        // Înlocuiește 'link-ul-catre-pdf' cu URL-ul real către fișierul PDF
+        const pdfUrl = '../../../public/morosanu_iustin_cv.pdf';
+        // Creează un element de tip <a> pentru a iniția descărcarea
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = 'morosanu_iustin_cv.pdf'; // Numele cu care va fi salvat fișierul
+    
+        // Adaugă elementul <a> în DOM și declanșează descărcarea
+        document.body.appendChild(link);
+        link.click();
+    
+        // Sterge elementul <a> după ce descărcarea a fost inițiată
+        document.body.removeChild(link);
+      };
     const { ref, inView } = useInView({
         threshold: 0.5,
     });
@@ -32,10 +43,10 @@ const HeaderContainer = () => {
         <div className="flex items-center h-[70vh] md:bg-mobileShadowBg md:w-full md:border-0 md:min-h-[100vh] md:p-0  mxl:rounded-[0.5rem] relative mxl:p-[2rem] z-[200] w-[70%] mx-auto">
             <div className="md:[w-70%] md:mx-auto xsm:mx-[2rem] ">
                 <h2 className="text-[2.5rem] ls:text-[2rem] sm:text-[1.5rem] md:font-bold">Frontend Developer</h2>
-                <p className="flex-1 my-[1.5rem] text-[1.8rem] ls:text-[1.3rem] sm:text-[1.1rem] md:font-bold">Discover the beauty of a developer's universe</p>
-                <a href={fileUrl} download className='hover:bg-white w-[180px] flex items-center justify-center px-[1.5rem] my-[1rem] py-[0.5rem] border-[2px] text-[1.1rem] sm:text-[0.9rem] sm:px-[1rem] text-white border-white   hover:bg-transparent  transition-all  hover:text-black rounded-[0.2rem] cursor-pointer hover:bg' >
+                <p className="flex-1 my-[1.5rem] text-[1.8rem] ls:text-[1.3rem] sm:text-[1.1rem] md:font-bold">The journey of a developer's universe</p>
+                {/* <button onClick={downloadFile} className='hover:bg-white w-[180px] flex items-center justify-center px-[1.5rem] my-[1rem] py-[0.5rem] border-[2px] text-[1.1rem] sm:text-[0.9rem] sm:px-[1rem] text-white border-white   hover:bg-transparent  transition-all  hover:text-black rounded-[0.2rem] cursor-pointer hover:bg' >
                     Download CV
-                </a>
+                </button> */}
                 <div className="text-[3rem] sm:text-[2rem]">
                     <a href='https://www.linkedin.com/in/morosanu-iustin-b10990222/' target="_blank" ><FontAwesomeIcon className='cursor-pointer' icon={faLinkedin}/></a>
                     <a href='https://github.com/IustinM' target="_blank" ><FontAwesomeIcon className='ml-[1.5rem] cursor-pointer' icon={faGithub}/></a>

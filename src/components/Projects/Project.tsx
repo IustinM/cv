@@ -33,7 +33,7 @@ const Project:React.FC<any> =  React.forwardRef(({index,project}) => {
     
       case 'mind':
         return <FontAwesomeIcon icon={faBrain}/>
-      case 'habbit':
+      case 'habit':
         return <FontAwesomeIcon icon={faPalette}/>
       default:
         return '';

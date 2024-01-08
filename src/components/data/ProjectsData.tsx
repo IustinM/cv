@@ -19,11 +19,11 @@ export const  projects = [
     },
     {
         title:"AppriseMe",
-        description:"AppriseMe is a project based on the Atomic Habbits book. The project aims to correct negative habits and create positive habits or develop current ones. The project contains an algorithm developed by me, which, following some data received from the user, will calculate the stage in which the habit is, either negative or positive, the time required to eliminate the negative habit, or the development of the positive one, as well as a graph of all habbits. The frontend of the project is also made in React.js and TypeScript, and the backend is made in Express.js.",
+        description:"AppriseMe is a project based on the Atomic Habits book. The project aims to correct negative habits and create positive habits or develop current ones. The project contains an algorithm developed by me, which, following some data received from the user, will calculate the stage in which the habit is, either negative or positive, the time required to eliminate the negative habit, or the development of the positive one, as well as a graph of all habits. The frontend of the project is also made in React.js and TypeScript, and the backend is made in Express.js. Due to the complexity of the algorithm and the high level of information required, this application is still in development, later the mobile version, made with React Native, will be released.",
         tehnologies:["React","Tailwind","JWT","Framer Motion","Express.js","MySql","TypeScript"],
         website_link:'',
         source_code:'https://github.com/IustinM/appriseme-client',
-        type:'habbit',
+        type:'habit',
         progress:true
     }
 ]

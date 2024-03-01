@@ -39,7 +39,7 @@ const JourneyLine = () => {
             </div>
         </div>
       </div>
-        <ImageComponent width={850} height={850} src={jupiter} alt={'jupiter img'} left={55} top={-20} distance={10} />
+        {/* <ImageComponent width={850} height={850} src={jupiter} alt={'jupiter img'} left={55} top={-20} distance={10} /> */}
     </div>
   )
 }

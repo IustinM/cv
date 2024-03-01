@@ -43,7 +43,7 @@ const Tehnology:React.FC<Props> = ({text}) => {
       }
   return (
     <div>
-        <div className={`${getTehnologyColor(text)} px-[1rem]  py-[0.3rem] my-[1rem] mr-[1rem] rounded-[0.2rem] mxl:text-[0.9ren]`}>{text}</div>
+        <div className={`bg-greyCard text-white px-[1rem]  py-[0.3rem] my-[0.5rem] mr-[1rem] rounded-[0.2rem] text-[0.9rem]`}>{text}</div>
     </div>
   )
 }

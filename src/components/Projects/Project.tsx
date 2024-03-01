@@ -1,26 +1,14 @@
-import {  faBrain, faCode, faCompass, faGear, faPalette, faServer, faVideo } from '@fortawesome/free-solid-svg-icons';
+import {  faCode, faCompass} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import neptun from '../../images/neptun.png';
 import Tehnology from './utils/Tehnology';
-
-import React, { useCallback, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { GeneralContext } from '../../context/generalContext';
-import ImageComponent from '../utils/ImageComponent';
 import Header from '../utils/Header';
-import { title } from 'process';
-import { Icon } from '@fortawesome/fontawesome-svg-core';
 import keepinmind from '../../images/keepinmind.png';
 import { motion } from 'framer-motion';
 import { hiddenTranslateVariantXY, hiddenTranslateVariantX } from '../utils/variants';
-interface Props{
-  index:number,
-  title:string,
-  tehnologies:string[],
-  description:string,
-  type:string,
-  progress?:boolean
-}
+
 
 const Project:React.FC<any> =  React.forwardRef(({index,project}) => {
 
@@ -30,20 +18,6 @@ const Project:React.FC<any> =  React.forwardRef(({index,project}) => {
   });
   const {setBackgroundIndex} = useContext(GeneralContext);
     
-  const returnIcon = () =>{
-    switch(project.ype){
-      case 'movies':
-        return <FontAwesomeIcon icon={faVideo}/>
-    
-      case 'mind':
-        return <FontAwesomeIcon icon={faBrain}/>
-      case 'habit':
-        return <FontAwesomeIcon icon={faPalette}/>
-      default:
-        return '';
-    }
-
-  }
   useEffect(() =>{
     if(inView){
       setBackgroundIndex(index+3);
@@ -57,8 +31,14 @@ const Link:React.FC<{text:string,link:string,icon:any}> = ({text,icon,link}) =>{
       <FontAwesomeIcon className='text-[1.2rem] ml-[0.3rem]' icon={icon}/>
     </a>
   )}
+
   return (
-    <div ref={inViewRef}  id='projects' className='w-full relative md:min-h-[100vh]  min-h-[80vh] mb-[2rem] md:mb-[0rem]  flex justify-center items-center  '>
+    <div ref={inViewRef}  id='projects' className='w-full relative md:min-h-[100vh]  min-h-[80vh] mb-[2rem] md:mb-[0rem]  flex flex-col justify-center items-center  '>
+   {index - 1 === 0 &&
+    <div className=" flex justify-start w-full">
+          <Header title='Projects'/>   
+    </div>
+    }
     <div className=" py-[1rem] flex ls:flex-col ls:px-[2rem] md:px-[0rem]  relative z-[60] rounded-[0.3rem] bg-greyBg md:bg-transparent">
       <div className="ml-[2rem] ls:ml-[0rem] w-[50%] ls:w-full   ">
         <div className="inline-block   ">
@@ -75,9 +55,7 @@ const Link:React.FC<{text:string,link:string,icon:any}> = ({text,icon,link}) =>{
       </div>
       <div className="mx-[0.5rem]"></div>
       <div className="w-[50%] ls:w-full ls:ml-[0rem]  mr-[1rem]">
-        <div style={{backgroundImage:`url(${keepinmind}`}} className="bg-center w-[90%] md:w-full rounded-[0.3rem] md:h-[300px] sm:h-[200px] h-[230px] xl:w-[400px] xl:h-[200px]   bg-cover bg-no-repeat"></div>
-          {/* <img className='w-[450px] h-[250px] xl:w-[400px] xl:h-[200px] object-fit' src={keepinmind} alt="project" /> */}
-       
+        <div style={{backgroundImage:`url(${keepinmind}`}} className="bg-center w-[90%] md:w-full rounded-[0.3rem] md:h-[300px] sm:h-[200px] h-[230px] xl:w-[400px] xl:h-[200px]   bg-cover bg-no-repeat"></div>       
         <div className="my-[1.5rem]">
           <div className="font-semibold text-[1.1rem] ">Tehnologies:</div>
           <div className="flex flex-wrap mt-[0.5rem]">{project.tehnologies.map((tehnology:string) => <Tehnology text={tehnology} />)}</div>

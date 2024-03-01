@@ -75,7 +75,7 @@ const Form:React.FC<any> = React.forwardRef(({},myRef:any) => {
     },[submitted])
   
   return (
-    <div ref={setRefs} id='contact' className='flex min-h-[100vh] relative pb-[1rem]  z-[201] justify-center items-center'>
+    <div ref={setRefs} id='contact' className='flex min-h-[90vh] relative pb-[1rem]  z-[201] justify-center items-center'>
        
             <form ref={form} onSubmit={onSubmitHandler} className='flex relative z-[50] bg-greyBg flex-col min-h-[550px] sm:border-0 sm:bg-transparent p-[1rem] border-[1px] rounded-[0.5rem] border-white w-[350px] px-[1.5rem]  justify-center h-[300px] text-black'>
               <div className="w-[85%] mx-auto flex flex-col">

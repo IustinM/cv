@@ -1,5 +1,3 @@
-import { faArrowDown, faCode } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback, useContext, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer';
 import { GeneralContext } from '../../context/generalContext';
@@ -27,10 +25,6 @@ const Projects:React.FC<any> =  React.forwardRef(({},ref:any) => {
   return (
     <div ref={setRefs} className='w-full '>
       <div className="w-[80%]  mx-auto">
-
-        <div className=" flex justify-start w-full">
-          <Header title='Projects'/>   
-        </div>
         {projects.map((project,index) =><Project  index={index+1} project={project}/>)}
       </div>
         

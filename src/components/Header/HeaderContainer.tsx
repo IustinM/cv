@@ -9,6 +9,9 @@ import ImageComponent from '../utils/ImageComponent';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { motion, useAnimation } from 'framer-motion';
 import { hiddenTranslateVariantX, hiddenTranslateVariantXY, hiddenTranslateVariantY } from '../utils/variants';
+import fileDownload from 'js-file-download';
+import axios from 'axios';
+import pdf from './file.pdf'
 // import pdf from '../../../public/morosanu_iustin_cv.pdf'
 const HeaderContainer = () => {
 
@@ -33,19 +36,24 @@ const HeaderContainer = () => {
            <div className="min-h-[60vh]  relative z-[50] w-[80%] xl:w-[80%] mxl:min-h-[95vh] mx-auto flex flex-col justify-center">
                 <div className="">
                     <h2 className="text-[2.8rem]  ls:text-[2rem] sm:text-[1.5rem] font-bold">IUSTIN MOROSANU</h2>
-                    <h6 className='my-[2rem] text-[1.2rem] mxl:text-[1rem] '>I am an <span className='    bg-gradient-to-r from-[#2e2beb]  to-[#0962d8] inline-block text-transparent bg-clip-text '>experienced</span> and  <span className='bg-gradient-to-r from-[#e34800]  to-[#f57206] inline-block text-transparent bg-clip-text'>dedicated</span> Frontend developer <br/> based in <span className='bg-gradient-to-r from-[#2e2beb]  to-[#d809ce] inline-block text-transparent bg-clip-text '>Manchester, United Kingdom.</span></h6>   
+                    <h6 className='my-[2rem] text-[1.2rem] mxl:text-[1rem] '>I am an <span className='    bg-gradient-to-r from-[#2e2beb]  to-[#0962d8] inline-block text-transparent bg-clip-text '>experienced</span> and  <span className='bg-gradient-to-r from-[#e34800]  to-[#f57206] inline-block text-transparent bg-clip-text'>dedicated</span> Frontend developer <br/> based in <span className='bg-gradient-to-r from-[#2e2beb]  to-[#8c09d8] inline-block text-transparent bg-clip-text '>Manchester, United Kingdom.</span></h6>   
                     {/* <div className='w-[100px] h-[100px]' style={ {backgroundImage: "url(../../images/blob.svg)"}}></div> */}
-                    <div className="text-[3rem] sm:text-[2rem]">
+                    <div className="text-[3rem] sm:text-[2rem] mb-[2rem]">
                         <a href='https://www.linkedin.com/in/morosanu-iustin-b10990222/' target="_blank" ><FontAwesomeIcon className='cursor-pointer' icon={faLinkedin}/></a>
                         <a href='https://github.com/IustinM' target="_blank" ><FontAwesomeIcon className='ml-[1.5rem] cursor-pointer' icon={faGithub}/></a>
                     </div>
-                    {/* <button  onClick={() => {}}className='border-[1px] mt-[2rem] border-black text-[1rem] bg-black text-white px-[1.8rem] py-[0.5rem] rounded-[0.2rem]'> Projects</button> */}
+                    <a href={pdf} download='cv' rel="noopener noreferrer" target="_blank"  className='border-[1px] mt-[2rem] border-black text-[1rem] bg-black text-white px-[1.8rem] py-[0.5rem] rounded-[0.2rem]'> Download CV</a>
                 </div>
            </div>
-            <div className="min-h-[20vh] mxl:min-h-[5vh] relative z-[50] flex animate-bounce items-center flex-col mxl:justify-start justify-end">
-                <FontAwesomeIcon icon={faArrowDown}/>
-                {/* <p className="mt-[0.5rem]">About me</p>  */}
-            </div>
+          
+            {/* <div className="min-h-[20vh] mxl:min-h-[5vh] relative z-[50] flex  items-center flex-col mxl:justify-start justify-end">
+                <div className="text-[0.9rem] mb-[0.5rem]">Scroll for more</div>
+                <div className="w-[25px] h-[40px]  rounded-[10rem] border-[2px] border-black">
+                    <div className="h-[55px] flex justify-center items-center  animate-bounce">
+                        <div className="w-[17px] h-[17px]  rounded-full bg-black"></div>
+                    </div>
+                </div>
+            </div> */}
                 <motion.svg  variants={hiddenTranslateVariantY(-10,10,0.6,inView)} initial={'hidden'} exit={'exit'} animate='show'  className='absolute w-[400px] ls:w-[300px] lg:w-[200px] mxl:hidden  top-[-12%] ls:top-[-10%] lg:top-[5%] ls:right-[6%] right-[10%] tall:w-[300px]' id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">                    <defs>                         <linearGradient id="sw-gradient5" x1="0" x2="1" y1="1" y2="0">                            <stop id="stop1" stop-color="rgba(0, 47.66, 255, 1)" offset="0%"></stop>                            <stop id="stop2" stop-color="rgba(0, 185.887, 255, 1)" offset="100%"></stop>                        </linearGradient>                    </defs>                <path fill="url(#sw-gradient5)" d="M16.8,-18.8C24.3,-13.8,34.4,-10.8,36.5,-5.4C38.7,0,32.8,7.8,28.1,16.4C23.3,25,19.6,34.5,13.1,37.6C6.5,40.7,-3,37.5,-12.3,34C-21.6,30.5,-30.7,26.8,-35.4,19.9C-40,13,-40.1,2.9,-38.3,-6.6C-36.4,-16.1,-32.5,-25.2,-25.8,-30.2C-19.1,-35.3,-9.6,-36.4,-2.4,-33.5C4.7,-30.6,9.4,-23.7,16.8,-18.8Z" width="100%" height="100%" transform="translate(50 50)" style={{transition:"transition: all 0.3s ease 0s;"}} stroke-width="0" stroke="url(#sw-gradient5)"></path>              </motion.svg>
                 <motion.svg variants={hiddenTranslateVariantX(50,10,0.6,inView)} initial={'hidden'} exit={'exit'} animate='show' className='absolute w-[400px] ls:w-[300px] lg:w-[200px] mxl:hidden   bottom-[20%] ls:bottom-[15%] lg:bottom-[30%] right-0 tall:w-[300px]' id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <linearGradient id="sw-gradient2" x1="0" x2="1" y1="1" y2="0">                            <stop id="stop1" stop-color="rgba(248, 143.599, 55, 1)" offset="0%"></stop>                            <stop id="stop2" stop-color="rgba(251, 31, 31, 1)" offset="100%"></stop></linearGradient></defs><path fill="url(#sw-gradient2)" d="M15.8,-22.3C19.8,-15.4,22.1,-9.8,25,-3C27.9,3.9,31.5,12.1,29.1,17.4C26.8,22.8,18.4,25.3,10.2,28.5C1.9,31.7,-6.2,35.7,-11.2,33C-16.2,30.2,-17.9,20.8,-17.3,13.9C-16.6,7,-13.6,2.6,-12.9,-2.5C-12.3,-7.5,-14.1,-13.2,-12.3,-20.6C-10.6,-27.9,-5.3,-36.9,0.3,-37.2C5.9,-37.5,11.7,-29.2,15.8,-22.3Z" width="100%" height="100%" transform="translate(50 50)" style={{transition:"transition: all 0.3s ease 0s;" }} stroke-width="0"></path>              </motion.svg>
             {/* <ssvg className='absolute w-[500px] bottom-[2rem] right-0'  id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">                    <defs>                         <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">                            <stop id="stop1" stop-color="rgba(58.387, 195.05, 255, 1)" offset="0%"></stop>                            <stop id="stop2" stop-color="rgba(63.932, 4.773, 238.114, 1)" offset="100%"></stop></linearGradient> </defs> <path fill="url(#sw-gradient)" d="M26.6,-21.8C31.1,-15.5,29.3,-4.6,26.7,5.9C24.2,16.4,20.9,26.6,15.4,27.5C9.9,28.4,2.1,20.1,-8.3,15.7C-18.6,11.3,-31.6,10.7,-33.3,6.6C-35.1,2.5,-25.6,-5.2,-18.2,-12.2C-10.8,-19.1,-5.4,-25.3,2.8,-27.6C11,-29.8,22,-28.1,26.6,-21.8Z" width="100%" height="100%" transform="translate(50 50)" style={{transition:"transition: all 0.3s ease 0s;"}} stroke-width="0"></path></ssvg> */}

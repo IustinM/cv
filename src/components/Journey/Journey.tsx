@@ -29,8 +29,8 @@ console.log(inView)
             <Header title='About me'/>
           </div>
             <div className="text-[1rem] lg:text-[1rem] md:text-[0.9rem] relative text leading-7  md:pb-[2rem]">
-                      My name is Moroșanu Iustin and I am a passionate Frontend Developer, specialized in creating interactive and engaging web experiences. In my free time, I like to read and I am extremely passionate about sports.During this period, we collaborated with important clients such as Dove, Booking and Takeda, the most important being IBM. I have been recognized for my UX and UI skills, bringing value to projects by applying innovative concepts and creating an intuitive user interface. I had a significant impact on clients projects, particularly for IBM, where I helped improve user experience and increase application performance.
-              <br/>I had the opportunity to work in Romania as a Frontend Developer for a year for Harte Hanks. </div>
+            My name is Moroșanu Iustin, and I am a passionate Frontend Developer, specialized in creating interactive and engaging web experiences. In my free time, I enjoy reading and have a strong passion for sports. I had the opportunity to work in Romania as a Frontend Developer for Harte Hanks for a year. During this period, we collaborated with notable clients such as Dove, Booking, and Takeda, with IBM being the most significant. I have been recognized for my UX and UI skills, adding value to projects by implementing innovative concepts and creating intuitive user interfaces. I significantly impacted client projects, especially for IBM, where I contributed to enhancing user experience and boosting application performance.
+               </div>
             </div>   
             <div className="mx-[2rem]"></div>
             <div className="w-[50%] lg:w-full z-[50]">

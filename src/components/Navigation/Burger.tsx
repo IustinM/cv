@@ -18,7 +18,6 @@ const Burger:React.FC<Props> = ({setHideBurgerNav,hideBurgerNav}) => {
             <div className={`w-[30px] h-[3px]  rounded-[1rem]  ${!hideBurgerNav ? 'hidden' : ''} transition-all bg-black my-2`}></div>
             <div className={`w-[30px] h-[3px]  rounded-[1rem]  ${!hideBurgerNav ? '-rotate-45' : ''} transition-all  bg-black`}></div>
         </div>
-
       </div>  
   )
 }

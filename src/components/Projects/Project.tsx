@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import { GeneralContext } from '../../context/generalContext';
 import Header from '../utils/Header';
 import keepinmind from '../../images/keepinmind.png';
+import habiturn from '../../images/habiturn.png'
 import { motion } from 'framer-motion';
 import { hiddenTranslateVariantXY, hiddenTranslateVariantX } from '../utils/variants';
 
@@ -55,7 +56,11 @@ const Link:React.FC<{text:string,link:string,icon:any}> = ({text,icon,link}) =>{
       </div>
       <div className="mx-[0.5rem]"></div>
       <div className="w-[50%] ls:w-full ls:ml-[0rem]  mr-[1rem]">
+        {index - 1 === 0 ?
         <div style={{backgroundImage:`url(${keepinmind}`}} className="bg-center w-[90%] md:w-full rounded-[0.3rem] md:h-[300px] sm:h-[200px] h-[230px] xl:w-[400px] xl:h-[200px]   bg-cover bg-no-repeat"></div>       
+        :
+        <div style={{backgroundImage:`url(${habiturn}`}} className="bg-center w-[90%] md:w-full rounded-[0.3rem] md:h-[300px] sm:h-[200px] h-[230px] xl:w-[400px] xl:h-[200px]   bg-cover bg-no-repeat"></div>       
+      }
         <div className="my-[1.5rem]">
           <div className="font-semibold text-[1.1rem] ">Tehnologies:</div>
           <div className="flex flex-wrap mt-[0.5rem]">{project.tehnologies.map((tehnology:string) => <Tehnology text={tehnology} />)}</div>

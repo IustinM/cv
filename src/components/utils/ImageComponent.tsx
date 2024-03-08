@@ -14,14 +14,16 @@ interface Props{
 const ImageComponent:React.FC<Props> = ({src ,alt,width,height,left,top,distance}) => {
   
   const ref = useRef(null);
+  
   function useParallax(value: MotionValue<number>, distance: number) {
     return useTransform(value, [0, 1], [-distance, distance]);
   }
+
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, distance);
 
   return (
-    <motion.div className='' ref={ref} style={{ y, position: 'absolute', left: `${left}%`, top: `${top}%`, zIndex: 150 }}>
+  <motion.div className='' ref={ref} style={{ y, position: 'absolute', left: `${left}%`, top: `${top}%`, zIndex: 150 }}>
       <img width={width} height={height} src={src} alt={alt} />
   </motion.div>
    

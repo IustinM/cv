@@ -50,7 +50,7 @@ const Link:React.FC<{text:string,link:string,icon:any}> = ({text,icon,link}) =>{
           <div className={` text-[1rem] mt-[0.5rem] ls:text-[0.9rem]`}>{project.description}</div>
         </div>
         <div className="ls:hidden flex-wrap mb-[0.5rem] flex mt-[2rem] md:mb-[2rem]">
-              <Link text='View project' link={project.source_code} icon={faCompass}/> 
+              <Link text='View project' link={project.website_link} icon={faCompass}/> 
               <Link text='View code' link={project.source_code} icon={faCode}/>       
           </div>
       </div>

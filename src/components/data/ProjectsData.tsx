@@ -4,7 +4,7 @@ export const  projects = [
         title:"KeepInMind",
         description:"KeepInMind is a project designed to help users memorize the main ideas from a book, a movie, or a day. Reading is one of my passions, which inspired the idea for this project. I wanted to create an application that could help me memorize as many details as possible from the books I read. Please note that the server is rendered on onRender, and due to inactivity, it might sometimes close. This means the user may have to try logging in a couple of times. ",
         tehnologies:["React","Tailwind","JWT Authentication","Framer Motion","Express.js","MySql","TypeScript"],
-        website_link:'',
+        website_link:'https://iustinm.github.io/keepinmind/',
         source_code:{frontend:'https://github.com/IustinM/keepinmind-client',backend:'https://github.com/IustinM/keepinmind-server'},
         type:'mind',
         progress:false
